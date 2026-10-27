@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Financeiro - SiteMonet Rio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>💰 Financeiro</h1>
+      <p class="subtitle">Controle de despesas e receitas</p>
+    </header>
+
+    <section class="resumo">
+      <div class="card receitas">
+        <span class="label">Receitas</span>
+        <span class="valor" id="receitasTotal">R$ 0,00</span>
+      </div>
+      <div class="card despesas">
+        <span class="label">Despesas</span>
+        <span class="valor" id="despesasTotal">R$ 0,00</span>
+      </div>
+      <div class="card saldo">
+        <span class="label">Saldo</span>
+        <span class="valor" id="saldoTotal">R$ 0,00</span>
+      </div>
+    </section>
+
+    <section class="nova-transacao">
+      <h2>Nova Transação</h2>
+      <form id="formTransacao">
+        <div class="campo">
+          <label for="descricao">Descrição</label>
+          <input type="text" id="descricao" placeholder="Ex: Salário, Mercado, Luz" required />
+        </div>
+        <div class="campo">
+          <label for="valor">Valor (R$)</label>
+          <input type="number" id="valor" step="0.01" required />
+        </div>
+        <div class="campo">
+          <label for="tipo">Tipo</label>
+          <select id="tipo" required>
+            <option value="receita">Receita</option>
+            <option value="despesa">Despesa</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary">Adicionar</button>
+      </form>
+    </section>
+
+    <section class="lista-transacoes">
+      <h2>Histórico</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Descrição</th>
+            <th>Tipo</th>
+            <th>Valor</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaTransacoes"></tbody>
+      </table>
+      <div id="vazio" class="vazio">Nenhuma transação cadastrada.</div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
